@@ -81,7 +81,7 @@ var myChart2 = new Chart(ctx, {
       label: 'mylabel',
       callbacks: {
         label: function(tooltipItem, data) {
-          console.log(tooltipItem)
+          // console.log(tooltipItem)
 
           return tooltipItem.yLabel
             .toString()
@@ -268,13 +268,11 @@ function clearChart() {
 //BUILD CHART BASED ON SELECTED FLOOR
 var link = d3.selectAll('.nav-link')
 link.on('click', function() {
-  // console.log('hello')
-  //    console.log(d3.select(this).attr('alt'))
+  
   d3.event.preventDefault()
   // grab attr for floor selected
   floor = d3.select(this).attr('alt')
   console.log(floor)
-  // console.log(myChart.data.datasets[0].data)
 
   clearChart()
 
@@ -308,6 +306,51 @@ link.on('click', function() {
     myChart3.update()
   })
 })
+
+
+// CLICK TO FILTER DATA BASED OFF ROOM NIGHTS
+var filterButton = d3.select('.btn-outline-success')
+filterButton.on('click', function() {
+  d3.event.preventDefault()
+  // GRAB VALUE FROM INPUT VALUE
+  roomNights = d3.select('.form-control').node().value
+  console.log(roomNights)
+  
+  clearChart()
+  // RETRIEVE DATA AND BUILD CHART BASED OFF ROOM NIGHTS CHOOSEN. 
+  var url3 = `/data_room/nights/${roomNights}`
+  d3.json(url3, function(data) {
+    console.log(data)
+
+    for (p = 0; p < data.length; p++) {
+      myChart.data.labels.push(data[p][0])
+      myChart.data.datasets[0].data.push(+data[p][3])
+      myChart.data.datasets[0].backgroundColor.push(chooseColor(+data[p][3]))
+    }
+
+    for (p = 0; p < data.length; p++) {
+      myChart2.data.labels.push(data[p][0])
+      myChart2.data.datasets[0].data.push(+data[p][2].toFixed(2))
+      myChart2.data.datasets[0].backgroundColor.push(
+        chooseColorRevenue(+data[p][2].toFixed(2))
+      )
+    }
+
+    for (p = 0; p < data.length; p++) {
+      myChart3.data.labels.push(data[p][0])
+      myChart3.data.datasets[0].data.push(+data[p][1])
+      myChart3.data.datasets[0].backgroundColor.push(chooseColor(+data[p][1]))
+    }
+
+    myChart.update()
+    myChart2.update()
+    myChart3.update()
+  })
+
+  
+})
+
+
 
 // CLICK TO RESET GRAPHS TO ALL THE FLOORS
 var allLink = d3.selectAll('#all_floors')

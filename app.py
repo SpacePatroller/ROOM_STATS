@@ -63,5 +63,20 @@ def data_room(floor):
     return jsonify(stats)
 
 
+
+@app.route('/data_room/nights/<nights>')
+def data_room_nights(nights):
+
+    stats = session.query(data.Room, data.ADR, data.ROOM_REV,
+                          data.RM_NIGHTS).filter(data.RM_NIGHTS > nights).all()
+
+    return jsonify(stats)
+
+
+
+
+
+
+
 if __name__ == "__main__":
     app.run(debug=True)
