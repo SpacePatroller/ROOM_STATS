@@ -12,13 +12,21 @@ var myChart = new Chart(ctx, {
         data: [],
         backgroundColor: [],
 
-        borderColor: ['#000000'],
+        borderColor: '#000000',
 
         borderWidth: 1
       }
     ]
   },
   options: {
+
+  //   legend: {
+  //     display: true,
+  //     position: 'left',
+  //     labels: {
+          
+  //     }
+  // },
     scales: {
       xAxes: [
         {
@@ -53,7 +61,7 @@ var myChart2 = new Chart(ctx, {
         data: [],
         backgroundColor: [],
 
-        borderColor: ['#000000'],
+        borderColor: '#000000',
 
         borderWidth: 1,
         fill: false
@@ -61,6 +69,13 @@ var myChart2 = new Chart(ctx, {
     ]
   },
   options: {
+  //   legend: {
+  //     display: true,
+  //     position: 'right',
+  //     labels: {
+          
+  //     }
+  // },
     tooltips: {
       mode: 'point',
       label: 'mylabel',
@@ -102,7 +117,7 @@ var myChart2 = new Chart(ctx, {
 //CHART THREE
 var ctx = document.getElementById('myChart3').getContext('2d')
 var myChart3 = new Chart(ctx, {
-  type: 'bar',
+  type: 'line',
   data: {
     labels: [],
     datasets: [
@@ -159,7 +174,7 @@ var myChart3 = new Chart(ctx, {
 
 // BUILD MAIN CHART
 
-colors = ['#6e40aa', '#fe4b83', '#e2b72f', '#52f667', '#23abd8', '#6e40aa']
+colors = ["#b2182b","#ef8a62","#fddbc7","#e0e0e0","#999999","#4d4d4d"]
 
 // COLOR CHOOSER FOR RM NIGHTS
 function chooseColor(x) {
@@ -180,15 +195,15 @@ function chooseColor(x) {
 
 // COLOR CHOOSER FOR REVENUe
 function chooseColorRevenue(x) {
-  if (x < 6000) {
+  if (x < 10000) {
     return colors[0]
-  } else if (x <= 12000) {
+  } else if (x <= 20000) {
     return colors[1]
-  } else if (x <= 15000) {
+  } else if (x <= 30000) {
     return colors[2]
-  } else if (x <= 25000) {
+  } else if (x <= 40000) {
     return colors[3]
-  } else if (x <= 49000) {
+  } else if (x <= 50000) {
     return colors[4]
   } else {
     return colors[5]

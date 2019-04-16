@@ -11,13 +11,12 @@ from sqlalchemy.pool import StaticPool
 import queue
 import threading
 
-engine = create_engine(
-    'sqlite://///Users/emanshupatel/code/Room_Statistics/room_stats_db.db',  connect_args={'check_same_thread': False},
-    poolclass=StaticPool, echo=True)
-
 # engine = create_engine(
-#     'sqlite:////Users/epatel/workcode/room_stats/room_stats_db.db',  connect_args={'check_same_thread': False},
+#     'sqlite://///Users/emanshupatel/code/Room_Statistics/room_stats_db.db',  connect_args={'check_same_thread': False},
 #     poolclass=StaticPool, echo=True)
+
+engine = create_engine('sqlite:////Users/epatel/workcode/Room_Statistics/room_stats_db.db',  connect_args={'check_same_thread': False},
+    poolclass=StaticPool, echo=True)
 
 
 conn = engine.connect()
