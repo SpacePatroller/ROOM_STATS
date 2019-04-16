@@ -159,7 +159,7 @@ var myChart3 = new Chart(ctx, {
 
 // BUILD MAIN CHART
 
-colors = ['#ffffcc', '#c7e9b4', '#7fcdbb', '#41b6c4', '#2c7fb8', '#253494']
+colors = ['#6e40aa', '#fe4b83', '#e2b72f', '#52f667', '#23abd8', '#6e40aa']
 
 // COLOR CHOOSER FOR RM NIGHTS
 function chooseColor(x) {
@@ -206,7 +206,6 @@ function buildMainChart() {
       myChart.data.labels.push(data[p][0])
       myChart.data.datasets[0].data.push(+data[p][3])
       myChart.data.datasets[0].backgroundColor.push(chooseColor(+data[p][3]))
-      // myChart.data.datasets[1].data.push(+(data[p][1]))
 
       // GRAB REVENUE NUMBERS FOR ROOMS
       myChart2.data.labels.push(data[p][0])
@@ -214,8 +213,6 @@ function buildMainChart() {
       myChart2.data.datasets[0].backgroundColor.push(
         chooseColorRevenue(+data[p][2].toFixed(2))
       )
-
-      // myChart.data.datasets[1].data.push(+(data[p][1]))
 
       //GRAB ADR FOR EACH ROOM
       myChart3.data.labels.push(data[p][0])
@@ -236,19 +233,17 @@ buildMainChart()
 function clearChart() {
   // clear charts
 
-  for (i = 0; i < 125; i++) {
-    myChart.data.datasets[0].data.pop()
-    myChart.data.labels.pop()
-    myChart.data.datasets[0].backgroundColor.pop()
+  myChart.data.datasets[0].data = []
+  myChart.data.labels = []
+  myChart.data.datasets[0].backgroundColor = []
 
-    myChart2.data.datasets[0].data.pop()
-    myChart2.data.labels.pop()
-    myChart2.data.datasets[0].backgroundColor.pop()
+  myChart2.data.datasets[0].data = []
+  myChart2.data.labels = []
+  myChart2.data.datasets[0].backgroundColor = []
 
-    myChart3.data.datasets[0].data.pop()
-    myChart3.data.labels.pop()
-    myChart3.data.datasets[0].backgroundColor.pop()
-  }
+  myChart3.data.datasets[0].data = []
+  myChart3.data.labels = []
+  myChart3.data.datasets[0].backgroundColor = []
 
   myChart.update()
   myChart2.update()
@@ -276,19 +271,21 @@ link.on('click', function() {
     for (p = 0; p < data.length; p++) {
       myChart.data.labels.push(data[p][0])
       myChart.data.datasets[0].data.push(+data[p][3])
-      // myChart.data.datasets[1].data.push(+(data[p][1]))
+      myChart.data.datasets[0].backgroundColor.push(chooseColor(+data[p][3]))
     }
 
     for (p = 0; p < data.length; p++) {
       myChart2.data.labels.push(data[p][0])
       myChart2.data.datasets[0].data.push(+data[p][2].toFixed(2))
-      // myChart.data.datasets[1].data.push(+(data[p][1]))
+      myChart2.data.datasets[0].backgroundColor.push(
+        chooseColorRevenue(+data[p][2].toFixed(2))
+      )
     }
 
     for (p = 0; p < data.length; p++) {
       myChart3.data.labels.push(data[p][0])
       myChart3.data.datasets[0].data.push(+data[p][1])
-      // myChart.data.datasets[1].data.push(+(data[p][1]))
+      myChart3.data.datasets[0].backgroundColor.push(chooseColor(+data[p][1]))
     }
 
     myChart.update()
