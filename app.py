@@ -11,13 +11,13 @@ from sqlalchemy.pool import StaticPool
 import queue
 import threading
 
-# engine = create_engine(
-#     'sqlite://///Users/emanshupatel/pickup_report/dailypickup.db',  connect_args={'check_same_thread': False},
-#     poolclass=StaticPool, echo=True)
-
 engine = create_engine(
-    'sqlite:////Users/epatel/workcode/room_stats/room_stats_db.db',  connect_args={'check_same_thread': False},
+    'sqlite://///Users/emanshupatel/code/Room_Statistics/room_stats_db.db',  connect_args={'check_same_thread': False},
     poolclass=StaticPool, echo=True)
+
+# engine = create_engine(
+#     'sqlite:////Users/epatel/workcode/room_stats/room_stats_db.db',  connect_args={'check_same_thread': False},
+#     poolclass=StaticPool, echo=True)
 
 
 conn = engine.connect()
@@ -49,8 +49,8 @@ def main_page():
 @app.route('/data')
 def main_data():
 
-
-    stats = session.query(data.Room,data.ADR,data.ROOM_REV,data.RM_NIGHTS).all()
+    stats = session.query(data.Room, data.ADR,
+                          data.ROOM_REV, data.RM_NIGHTS).all()
 
     return jsonify(stats)
 
@@ -58,11 +58,10 @@ def main_data():
 @app.route('/data_room/<floor>')
 def data_room(floor):
 
-
-    stats = session.query(data.Room,data.ADR,data.ROOM_REV,data.RM_NIGHTS).filter(data.FLOOR == floor).all()
+    stats = session.query(data.Room, data.ADR, data.ROOM_REV,
+                          data.RM_NIGHTS).filter(data.FLOOR == floor).all()
 
     return jsonify(stats)
-
 
 
 if __name__ == "__main__":
