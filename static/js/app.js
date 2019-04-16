@@ -178,8 +178,7 @@ function chooseColor(x) {
   }
 }
 
-// COLOR CHOOSER FOR REVENUE
-
+// COLOR CHOOSER FOR REVENUe
 function chooseColorRevenue(x) {
   if (x < 6000) {
     return colors[0]
@@ -236,17 +235,19 @@ buildMainChart()
 // CLEAR CHART FUNCTION
 function clearChart() {
   // clear charts
+
   for (i = 0; i < 125; i++) {
     myChart.data.datasets[0].data.pop()
     myChart.data.labels.pop()
-  }
-  for (i = 0; i < 125; i++) {
+    myChart.data.datasets[0].backgroundColor.pop()
+
     myChart2.data.datasets[0].data.pop()
     myChart2.data.labels.pop()
-  }
-  for (i = 0; i < 125; i++) {
+    myChart2.data.datasets[0].backgroundColor.pop()
+
     myChart3.data.datasets[0].data.pop()
     myChart3.data.labels.pop()
+    myChart3.data.datasets[0].backgroundColor.pop()
   }
 
   myChart.update()
