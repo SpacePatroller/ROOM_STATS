@@ -20,13 +20,13 @@ var myChart = new Chart(ctx, {
   },
   options: {
 
-  //   legend: {
-  //     display: true,
-  //     position: 'left',
-  //     labels: {
+    legend: {
+      display: true,
+      position: 'bottom',
+      labels: {
           
-  //     }
-  // },
+      }
+  },
     scales: {
       xAxes: [
         {
@@ -69,13 +69,13 @@ var myChart2 = new Chart(ctx, {
     ]
   },
   options: {
-  //   legend: {
-  //     display: true,
-  //     position: 'right',
-  //     labels: {
+    legend: {
+      display: true,
+      position: 'bottom',
+      labels: {
           
-  //     }
-  // },
+      }
+  },
     tooltips: {
       mode: 'point',
       label: 'mylabel',
@@ -134,6 +134,13 @@ var myChart3 = new Chart(ctx, {
     ]
   },
   options: {
+    legend: {
+      display: true,
+      position: 'bottom',
+      labels: {
+          
+      }
+  },
     tooltips: {
       mode: 'point',
       label: 'mylabel',
@@ -150,6 +157,13 @@ var myChart3 = new Chart(ctx, {
     },
 
     scales: {
+      legend: {
+        display: true,
+        position: 'bottom',
+        labels: {
+            
+        }
+    },
       xAxes: [
         {
           gridLines: {
@@ -174,7 +188,7 @@ var myChart3 = new Chart(ctx, {
 
 // BUILD MAIN CHART
 
-colors = ["#b2182b","#ef8a62","#fddbc7","#e0e0e0","#999999","#4d4d4d"]
+colors = ["#ffffd9","#edf8b1","#c7e9b4","#7fcdbb","#41b6c4","#1d91c0","#225ea8","#253494","#081d58"]
 
 // COLOR CHOOSER FOR RM NIGHTS
 function chooseColor(x) {

@@ -4,5 +4,20 @@
 
 body {
     margin:50px;
-    border-style: ridge;
+    /* border-style: ridge; */
+}
+
+#mainNav {
+
+    margin: 20px;
+    margin-bottom: 75px;
+}
+
+
+
+.carousel-control-prev-icon , .carousel-control-next-icon{
+    color: aquamarine;
+    background-color: black;
+    margin-right: 100px;
+    margin-top: 90%;
 }
