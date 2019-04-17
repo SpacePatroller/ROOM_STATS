@@ -20,4 +20,6 @@ body {
     background-color: black;
     margin-right: 100px;
     margin-top: 90%;
+    border-radius: 50px;
+    border: 2px;
 }
