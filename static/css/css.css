@@ -1,25 +1,28 @@
-.myChart  {
-    margin: 20px;
+.myChart {
+  margin: 20px;
 }
 
 body {
-    margin:50px;
-    /* border-style: ridge; */
+  /* margin: 50px; */
+  /* border-style: ridge; */
+  background-color: #ffffd9;
 }
 
 #mainNav {
-
-    margin: 20px;
-    margin-bottom: 75px;
+  background-color: #ffffd9;
+  margin-bottom: 20px;
+  margin-top: 5px;
+  border-radius: 20px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  /* position: absolute; */
 }
 
-
-
-.carousel-control-prev-icon , .carousel-control-next-icon{
-    color: aquamarine;
-    background-color: black;
-    margin-right: 100px;
-    margin-top: 90%;
-    border-radius: 50px;
-    border: 2px;
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  /* color: aquamarine; */
+  background-color: rgb(218, 189, 189);
+  margin-right: 100px;
+  margin-top: 90%;
+  border-radius: 50px;
+  border: 2px;
 }

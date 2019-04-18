@@ -11,12 +11,12 @@ from sqlalchemy.pool import StaticPool
 import queue
 import threading
 
-# engine = create_engine(
-#     'sqlite://///Users/emanshupatel/code/Room_Statistics/room_stats_db.db',  connect_args={'check_same_thread': False},
-#     poolclass=StaticPool, echo=True)
-
-engine = create_engine('sqlite:////Users/epatel/workcode/Room_Statistics/room_stats_db.db',  connect_args={'check_same_thread': False},
+engine = create_engine(
+    'sqlite://///Users/emanshupatel/code/Room_Statistics/room_stats_db.db',  connect_args={'check_same_thread': False},
     poolclass=StaticPool, echo=True)
+
+# engine = create_engine('sqlite:////Users/epatel/workcode/Room_Statistics/room_stats_db.db',  connect_args={'check_same_thread': False},
+#     poolclass=StaticPool, echo=True)
 
 
 conn = engine.connect()
@@ -63,7 +63,6 @@ def data_room(floor):
     return jsonify(stats)
 
 
-
 @app.route('/data_room/nights/<nights>')
 def data_room_nights(nights):
 
@@ -71,11 +70,6 @@ def data_room_nights(nights):
                           data.RM_NIGHTS).filter(data.RM_NIGHTS > nights).all()
 
     return jsonify(stats)
-
-
-
-
-
 
 
 if __name__ == "__main__":

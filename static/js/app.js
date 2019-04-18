@@ -19,14 +19,11 @@ var myChart = new Chart(ctx, {
     ]
   },
   options: {
-
     legend: {
       display: true,
       position: 'bottom',
-      labels: {
-          
-      }
-  },
+      labels: {}
+    },
     scales: {
       xAxes: [
         {
@@ -42,7 +39,8 @@ var myChart = new Chart(ctx, {
           },
           ticks: {
             beginAtZero: false,
-            min: 100
+            min: 100,
+            max: 365
           }
         }
       ]
@@ -72,10 +70,8 @@ var myChart2 = new Chart(ctx, {
     legend: {
       display: true,
       position: 'bottom',
-      labels: {
-          
-      }
-  },
+      labels: {}
+    },
     tooltips: {
       mode: 'point',
       label: 'mylabel',
@@ -137,10 +133,8 @@ var myChart3 = new Chart(ctx, {
     legend: {
       display: true,
       position: 'bottom',
-      labels: {
-          
-      }
-  },
+      labels: {}
+    },
     tooltips: {
       mode: 'point',
       label: 'mylabel',
@@ -160,10 +154,8 @@ var myChart3 = new Chart(ctx, {
       legend: {
         display: true,
         position: 'bottom',
-        labels: {
-            
-        }
-    },
+        labels: {}
+      },
       xAxes: [
         {
           gridLines: {
@@ -188,7 +180,17 @@ var myChart3 = new Chart(ctx, {
 
 // BUILD MAIN CHART
 
-colors = ["#ffffd9","#edf8b1","#c7e9b4","#7fcdbb","#41b6c4","#1d91c0","#225ea8","#253494","#081d58"]
+colors = [
+  '#ffffd9',
+  '#edf8b1',
+  '#c7e9b4',
+  '#7fcdbb',
+  '#41b6c4',
+  '#1d91c0',
+  '#225ea8',
+  '#253494',
+  '#081d58'
+]
 
 // COLOR CHOOSER FOR RM NIGHTS
 function chooseColor(x) {
@@ -282,7 +284,6 @@ function clearChart() {
 //BUILD CHART BASED ON SELECTED FLOOR
 var link = d3.selectAll('.nav-link')
 link.on('click', function() {
-  
   d3.event.preventDefault()
   // grab attr for floor selected
   floor = d3.select(this).attr('alt')
@@ -321,7 +322,6 @@ link.on('click', function() {
   })
 })
 
-
 // CLICK TO FILTER DATA BASED OFF ROOM NIGHTS
 var filterButton = d3.select('.btn-outline-success')
 filterButton.on('click', function() {
@@ -329,9 +329,9 @@ filterButton.on('click', function() {
   // GRAB VALUE FROM INPUT VALUE
   roomNights = d3.select('.form-control').node().value
   console.log(roomNights)
-  
+
   clearChart()
-  // RETRIEVE DATA AND BUILD CHART BASED OFF ROOM NIGHTS CHOOSEN. 
+  // RETRIEVE DATA AND BUILD CHART BASED OFF ROOM NIGHTS CHOOSEN.
   var url3 = `/data_room/nights/${roomNights}`
   d3.json(url3, function(data) {
     console.log(data)
@@ -360,11 +360,7 @@ filterButton.on('click', function() {
     myChart2.update()
     myChart3.update()
   })
-
-  
 })
-
-
 
 // CLICK TO RESET GRAPHS TO ALL THE FLOORS
 var allLink = d3.selectAll('#all_floors')
