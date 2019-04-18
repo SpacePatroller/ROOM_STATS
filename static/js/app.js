@@ -369,3 +369,62 @@ allLink.on('click', function() {
   clearChart()
   buildMainChart()
 })
+
+var formatComma = d3.format(','),
+  formatDecimal = d3.format('.1f'),
+  formatDecimalComma = d3.format(',.2f'),
+  formatSuffix = d3.format('s'),
+  formatSuffixDecimal1 = d3.format('.1s'),
+  formatSuffixDecimal2 = d3.format('.2s'),
+  formatMoney = function(d) {
+    return '$' + formatDecimalComma(d)
+  },
+  formatPercent = d3.format(',.2%')
+
+// BUILD TABLE
+
+var url9 = '/data'
+
+d3.json(url9, function(data) {
+  // 	console.log(data)
+
+  data.forEach(function(element) {
+    element[1] = formatMoney(element[1])
+    element[2] = formatMoney(element[2])
+  })
+
+  // 	create var that selects the the table tag and append a table to the html
+  var table = d3
+    .select('#table')
+    .append('table')
+    .attr('class', 'table-striped')
+  // select the table and append a table header and row
+  var header = table.append('thead').append('tr')
+  // select the the table header and enter the table headers
+  header
+    .selectAll('th')
+    .data(['ROOM', 'ADR', 'REVENUE', 'ROOM NIGHTS'])
+    .enter()
+    .append('th')
+    .text(function(d) {
+      return d
+    })
+  // create a table body and append a table row for each row of data
+  var tablebody = table.append('tbody')
+  rows = tablebody
+    .selectAll('tr')
+    .data(data)
+    .enter()
+    .append('tr')
+  cells = rows
+    .selectAll('td')
+    .data(function(d) {
+      console.log(d)
+      return d
+    })
+    .enter()
+    .append('td')
+    .text(function(d) {
+      return d
+    })
+})

@@ -26,3 +26,12 @@ body {
   border-radius: 50px;
   border: 2px;
 }
+
+#mainTable {
+  margin: 20px;
+  margin-top: 50px;
+}
+
+.navbar-toggler-icon {
+  color: black;
+}
