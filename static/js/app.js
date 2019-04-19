@@ -328,7 +328,7 @@ filterButton.on('click', function() {
   d3.event.preventDefault()
   // GRAB VALUE FROM INPUT VALUE
   roomNights = d3.select('.form-control').node().value
-  console.log(roomNights)
+  // console.log(roomNights)
 
   clearChart()
   // RETRIEVE DATA AND BUILD CHART BASED OFF ROOM NIGHTS CHOOSEN.
@@ -398,7 +398,7 @@ d3.json(url9, function(data) {
   var table = d3
     .select('#table')
     .append('table')
-    .attr('data-toggle', 'table')
+    .attr('class', 'table-striped')
     .attr('width', '100%')
     .attr('id', 'dtOrderExample')
   // select the table and append a table header and row
