@@ -370,6 +370,7 @@ allLink.on('click', function() {
   buildMainChart()
 })
 
+// D3 CHARACTER FORMATTER
 var formatComma = d3.format(','),
   formatDecimal = d3.format('.1f'),
   formatDecimalComma = d3.format(',.2f'),
@@ -381,10 +382,10 @@ var formatComma = d3.format(','),
   },
   formatPercent = d3.format(',.2%')
 
-// BUILD TABLE
+// BUILD TABLE BUILD TABLE BUILD TABLE BUILD TABLE BUILD TABLE
 
 var url9 = '/data'
-
+// GRAB DATA
 d3.json(url9, function(data) {
   // 	console.log(data)
 
@@ -397,7 +398,9 @@ d3.json(url9, function(data) {
   var table = d3
     .select('#table')
     .append('table')
-    .attr('class', 'table-striped')
+    .attr('data-toggle', 'table')
+    .attr('width', '100%')
+    .attr('id', 'dtOrderExample')
   // select the table and append a table header and row
   var header = table.append('thead').append('tr')
   // select the the table header and enter the table headers
@@ -419,7 +422,7 @@ d3.json(url9, function(data) {
   cells = rows
     .selectAll('td')
     .data(function(d) {
-      console.log(d)
+      //   console.log(d)
       return d
     })
     .enter()
@@ -428,3 +431,5 @@ d3.json(url9, function(data) {
       return d
     })
 })
+
+// TABLE SORT FUNCTION
