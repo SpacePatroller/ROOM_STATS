@@ -294,7 +294,7 @@ link.on('click', function() {
   var url2 = `/data_room/${floor}`
   // console.log(url2)
   d3.json(url2, function(data) {
-    console.log(data)
+    // console.log(data)
 
     for (p = 0; p < data.length; p++) {
       myChart.data.labels.push(data[p][0])
